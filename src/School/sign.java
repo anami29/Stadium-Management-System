@@ -21,7 +21,7 @@ public class sign extends JFrame implements ActionListener {
     JPasswordField password;
     JRadioButton male,female,other;
     JDateChooser date;
-    JButton submit,cancel,back;
+    JButton submit,cancel,back,hel;
     Font font =new Font("Roboto",Font.BOLD,18);
     sign()
     {
