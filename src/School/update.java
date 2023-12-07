@@ -13,13 +13,27 @@ public class update extends JFrame implements ActionListener {
     private JLabel dataLabel,conte;
     JTextField name,contact,email,city,date,gender,ide;
     JRadioButton male,female,other;
-    Font f=new Font("Tahoma",Font.PLAIN,20);
+    Font f=new Font("Tahoma",Font.BOLD,20);
     JPasswordField password;
     ButtonGroup btn = new ButtonGroup();
-    JButton upd;
+    JButton upd,back;
     public update(String conte,String namee,String gen,String eml,String pasword,String cit,String dat,String idno)
     {
         setSize(800,800);
+        ImageIcon i2 = new ImageIcon(ClassLoader.getSystemResource("stad/back.png"));
+        Image editedimg2 = i2.getImage().getScaledInstance(60,60,Image.SCALE_DEFAULT);
+        i2= new ImageIcon(editedimg2);
+
+        back = new JButton(i2);
+        back.setBounds(0,0,60,60);
+        back.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new web();
+                setVisible(false);
+            }
+        });
+        add(back);
         JLabel l1=new JLabel("Update The Information....");
         l1.setBounds(250,20,400,50);
         l1.setFont(f);
@@ -64,6 +78,7 @@ public class update extends JFrame implements ActionListener {
         name.setBounds(400,100,200,40);
         name.setFont(f);
         add(name);
+
         ide=new JTextField(idno);
         ide.setBounds(600,600,100,50);
         ide.setFont(f);
@@ -102,6 +117,12 @@ public class update extends JFrame implements ActionListener {
         upd.addActionListener(this);
         upd.setFont(f);
         add(upd);
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("stad/bluu.jpg"));
+        Image editedimg1 = i1.getImage().getScaledInstance(800,800,Image.SCALE_DEFAULT);
+        i1 = new ImageIcon(editedimg1);
+        JLabel lb1 = new JLabel(i1);
+        lb1.setBounds(0,0,800,800);
+        add(lb1);
 
         setLayout(null);
         setLocationRelativeTo(null);
@@ -132,6 +153,8 @@ public class update extends JFrame implements ActionListener {
                 String query2 = "UPDATE signing_in SET `idno` = '" + id + "', `name` = '" + nam + "', `contact` = '" + contact + "', `email` = '" + email + "', `gender` = '" + gender + "', `password` = '" + password + "', `date` = '" + date + "',`city` = '" + city + "' WHERE (`idno` = '" + id + "') and (`contact` = '" + pho + "');";
                 c.s.executeUpdate(query2);
                 JOptionPane.showMessageDialog(null, "Updated successfully");
+                new FirstFrame().setVisible(false);
+                new web();
                 this.setVisible(false);
             }
             catch(Exception e)

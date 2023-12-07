@@ -86,7 +86,7 @@ public class login extends JFrame implements ActionListener {
                 ResultSet rs = c.s.executeQuery(query);
                 if (rs.next()) {
                     JOptionPane.showMessageDialog(null, "Login Successfull!");
-                    new event();
+                    new print();
                 } else {
                     JOptionPane.showMessageDialog(null, "Invalid Credentials!!");
                 }

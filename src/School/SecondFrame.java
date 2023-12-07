@@ -38,17 +38,17 @@ class SecondFrame extends JFrame implements ActionListener{
 
             String query ="select idno,name,email,gender,password,date,city from signing_in where contact='"+data+"';";
             ResultSet rs=c.s.executeQuery(query);
-            StringBuilder csvData =new StringBuilder();
+           // StringBuilder csvData =new StringBuilder();
             while(rs.next())
             {
-                idno =rs.getString("idno");
+                idno=rs.getString("idno");
                 name = rs.getString("name");
                 email =rs.getString("email");
                 gender =rs.getString("gender");
                 password =rs.getString("password");
                 date =rs.getString("date");
                 city=rs.getString("city");
-                System.out.println(idno);
+                //System.out.println(idno);
                // csvData.append(name);
                // csvData.append(email);
                 //csvData.append(gender);
@@ -162,7 +162,7 @@ class SecondFrame extends JFrame implements ActionListener{
                 });
             }
             rs.close();
-            System.out.println(csvData.toString());
+           // System.out.println(csvData.toString());
         }
         catch(Exception e)
         {

@@ -7,9 +7,6 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
-import java.util.Arrays;
-
-import static java.awt.Transparency.TRANSLUCENT;
 
 public class sign extends JFrame implements ActionListener {
     int x=400;
@@ -74,46 +71,55 @@ public class sign extends JFrame implements ActionListener {
 
         city=new JTextField();
         city.setBounds(x,y+350,w,h);
+        city.setFont(font);
         add(city);
 
 
         name =new JTextField();
         name.setBounds(x,y,w,h);
+        name.setFont(font);
         add(name);
 
         phone =new JTextField();
         phone.setBounds(x,y+70,w,h);
+        phone.setFont(font);
         add(phone);
 
         email=new JTextField();
         email.setBounds(x,y+140,w,h);
+        email.setFont(font);
         add(email);
 
         password =new JPasswordField();
         password.setBounds(x,y+420,w,h);
+        password.setFont(font);
         add(password);
         ButtonGroup btn=new ButtonGroup();
 
         male =new JRadioButton("MALE");
         male.setBounds(x,y+280,w-220,h);
         male.setFont(new Font("Times of Roman",Font.BOLD,14));
+        male.setFont(font);
         btn.add(male);
         add(male);
 
         female =new JRadioButton("FEMALE");
         female.setBounds(x+100,y+280,w-200,h);
         female.setFont(new Font("Times of Roman",Font.BOLD,14));
+        female.setFont(font);
         btn.add(female);
         add(female);
 
         other =new JRadioButton("OTHERS");
         other.setBounds(x+220,y+280,w-200,h);
         other.setFont(new Font("Times of Roman",Font.BOLD,14));
+        other.setFont(font);
         btn.add(other);
         add(other);
 
         date=new JDateChooser();
         date.setBounds(x,y+210,w,h);
+        date.setFont(font);
         add(date);
 
         submit = new JButton("SIGN IN");
@@ -129,7 +135,7 @@ public class sign extends JFrame implements ActionListener {
         add(cancel);
 
 
-        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("stad/cross.png"));
+        ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("stad/gra.jpg"));
         Image editedimg1 = i1.getImage().getScaledInstance(800,800,Image.SCALE_DEFAULT);
         i1 = new ImageIcon(editedimg1);
         JLabel lb1 = new JLabel(i1);
@@ -164,6 +170,7 @@ public class sign extends JFrame implements ActionListener {
 
             SimpleDateFormat dt =new SimpleDateFormat("dd-MM-yyyy");
             String date= dt.format(this.date.getDate());
+           // System.out.println(date);
 
             String gender=null;
             if(male.isSelected())
@@ -184,7 +191,7 @@ public class sign extends JFrame implements ActionListener {
             try{
                 c.s.executeUpdate(query);
                 JOptionPane.showMessageDialog(null,"Signing successfully\nWELCOME!!!");
-                new event();
+                new login();
                 setVisible(false);
             }
             catch(Exception e){

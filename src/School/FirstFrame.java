@@ -67,15 +67,12 @@ public class FirstFrame extends JFrame {
             }
         });
         add(lb7);
-
+        setUndecorated(true);
+        setVisible(true);
     }
 
     public static void main(String[] args) {
-        SwingUtilities.invokeLater(() ->
-        {
-            FirstFrame firstFrame = new FirstFrame();
-            firstFrame.setVisible(true);
-        });
+
     }
 }
 

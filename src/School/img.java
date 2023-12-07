@@ -8,7 +8,7 @@ import java.awt.event.ActionListener;
 public class img extends JFrame implements ActionListener {
     int x=480,y=350;
 
-    JButton lb1,lb2,lb3,lb4,lb5,lb6,lb7;
+    JButton lb1,lb3,lb5,lb7,lb9;
     img()
     {
         setSize(1500,800);
@@ -22,14 +22,27 @@ public class img extends JFrame implements ActionListener {
         lb1.addActionListener(this);
         add(lb1);
 
-        //ImageIcon i2 = new ImageIcon(ClassLoader.getSystemResource("stad/stad1.jpg"));
-        //Image editedimg2 = i2.getImage().getScaledInstance(x,y,Image.SCALE_DEFAULT);
-        //i2 = new ImageIcon(editedimg2);
+        JTextArea ta=new JTextArea("\nStadiums are like the colossal coliseums of modern times, where the \nroars of the crowd and the cheers of fans create a symphony of\neuphoria. These mammoth marvels of architecture are more than \njust concrete and steel; they are the beating hearts of sports\nand entertainment.\n\nThe seating arrangements are like a colorful mosaic,forming a sea \nof eager faces, each one a brushstroke in the grand tapestry of \nfandom. From the nosebleed seats to the VIP boxes, there's a\nvantage point for every level of passion and pocketbook.\n\nStadium vendors sell a variety of food items and other wares either\nby walking around and calling out the name of the food or product\nthey are selling, or by operating small booths or kiosks. ");
+        ta.setBounds(550,10,450,y);
+        ta.setFont(new Font("Berlin Sans FB",Font.PLAIN,16));
+        add(ta);
 
-        //lb2 = new JButton(i2);
-        //lb2.setBounds(550,10,450,y);
-        //lb2.addActionListener(this);
-        //add(lb2);
+
+        JTextArea tc=new JTextArea("Customer Support Details:\n\nEmail id:stadcustomersupport@gmail.com\n\nContact :1234567890\n\n\n\n\n                        Thank You For Your Support");
+        tc.setBounds(1050,400,450,y);
+        tc.setFont(new Font("Berlin Sans FB",Font.PLAIN,16));
+        add(tc);
+        ImageIcon i9 = new ImageIcon(ClassLoader.getSystemResource("stad/logo.jpg"));
+        Image editedimg9 = i9.getImage().getScaledInstance(x,y,Image.SCALE_DEFAULT);
+        i9 = new ImageIcon(editedimg9);
+
+        lb9 = new JButton(i9);
+        lb9.setBounds(50,400,450,y);
+        lb9.addActionListener(this);
+        add(lb9);
+
+
+
 
         ImageIcon i3 = new ImageIcon(ClassLoader.getSystemResource("stad/save2.png"));
         Image editedimg3 = i3.getImage().getScaledInstance(x,y,Image.SCALE_DEFAULT);
@@ -40,14 +53,6 @@ public class img extends JFrame implements ActionListener {
         lb3.addActionListener(this);
         add(lb3);
 
-        //ImageIcon i4 = new ImageIcon(ClassLoader.getSystemResource("stad/IMG-20230929-WA0010.jpg"));
-        //Image editedimg4 = i4.getImage().getScaledInstance(x,y,Image.SCALE_DEFAULT);
-        //i4 = new ImageIcon(editedimg4);
-
-        //lb4 = new JButton(i4);
-        //lb4.setBounds(50,400,450,y);
-        //lb4.addActionListener(this);
-        //add(lb4);
 
         ImageIcon i5 = new ImageIcon(ClassLoader.getSystemResource("stad/new1.jpg"));
         Image editedimg5 = i5.getImage().getScaledInstance(x,y,Image.SCALE_DEFAULT);
@@ -57,15 +62,6 @@ public class img extends JFrame implements ActionListener {
         lb5.setBounds(550,400,450,y);
         lb5.addActionListener(this);
         add(lb5);
-
-        //ImageIcon i6 = new ImageIcon(ClassLoader.getSystemResource("stad/stad3.jpg"));
-        //Image editedimg6 = i6.getImage().getScaledInstance(x,y,Image.SCALE_DEFAULT);
-        //i6 = new ImageIcon(editedimg6);
-
-        //lb6 = new JButton(i6);
-        //lb6.setBounds(1050,400,450,y);
-        //lb6.addActionListener(this);
-        //add(lb6);
 
         ImageIcon i7 = new ImageIcon(ClassLoader.getSystemResource("stad/back.png"));
         Image editedimg7 = i7.getImage().getScaledInstance(50,50,Image.SCALE_DEFAULT);
@@ -78,7 +74,7 @@ public class img extends JFrame implements ActionListener {
 
 
 
-        setUndecorated(true);
+       // setUndecorated(true);
         setLayout(null);
         setLocationRelativeTo(null);
         setVisible(true);

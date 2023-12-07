@@ -14,7 +14,7 @@ public class web extends JFrame implements ActionListener {
         setSize(1500,800);
 
         lag = new JButton("BOOK ");
-        lag.setBounds(1300, 100,100,50);
+        lag.setBounds(1300, 200,100,50);
         lag.setBackground(Color.green);
         lag.addActionListener(this);
         add(lag);
@@ -26,15 +26,17 @@ public class web extends JFrame implements ActionListener {
         add(photo);
 
         tabs = new JTabbedPane();
-        tabs.setBounds(100,100,200,100);
+        tabs.setBounds(100,100,300,170);
         tabs.setFont(new Font("Tahoma", Font.BOLD, 16));
         add(tabs);
 
-        sem1=new JLabel("<html>1.ODIs<br>2.Test Series</html>");
+        sem1=new JLabel("<html>1.ODI (New Zealand v/s England)<p style=\"font-size:7px;\">(tickets sold out)</p><br>2.T20 (Hong Kong v/s Cambodia)<p style=\"font-size:7px;\">(tickets sold out)</p></html>");
         sem1.setBounds(10,0,40,50);
+        sem1.setFont(new Font("Tahoma", Font.BOLD, 16));
 
-        sem2=new JLabel("<html>1.IPL<br>2.Ranji Trophy<br>3.T20(coming soon)</html>");
+        sem2=new JLabel("<html>1.ODI (Pakistan v/s Netherlands)<p style=\"font-size:7px;\">(13-11-2023)(D.Y.Patil)</p><br>2.Test Series (IND v/s SL)<p style=\"font-size:7px;\">(19-11-2023)(R.Premadasa)</p><br>3.IPL (KKR v/s DC)<p style=\"font-size:7px;\">(10-11-2023)(Wankhede)</p></html>");
         sem2.setBounds(10,0,40,50);
+        sem2.setFont(new Font("Tahoma", Font.BOLD, 16));
 
 
         sp1 = new JScrollPane();
@@ -43,7 +45,7 @@ public class web extends JFrame implements ActionListener {
         sp2 = new JScrollPane();
         sp2.setViewportView(sem2);
         tabs.addTab("Today",sp1);
-        tabs.addTab("Tomorrow",sp2);
+        tabs.addTab("Further",sp2);
 
 
 
@@ -53,10 +55,15 @@ public class web extends JFrame implements ActionListener {
         l1.setBackground(Color.CYAN);
         l1.addActionListener(this);
         add(l1);
+        JLabel l0=new JLabel("PROFILE");
+        l0.setBounds(1410,85,70,30);
+        l0.setFont(new Font("Tahoma",Font.PLAIN,12));
+        add(l0);
+
 
         ImageIcon i1 = new ImageIcon(ClassLoader.getSystemResource("stad/IMG-20230929-WA0009.jpg"));
-        Image editedimg1 = i1.getImage().getScaledInstance(1500,800,Image.SCALE_DEFAULT);
-        i1 = new ImageIcon(editedimg1);
+       Image editedimg1 = i1.getImage().getScaledInstance(1500,800,Image.SCALE_DEFAULT);
+       i1 = new ImageIcon(editedimg1);
         JLabel lb1 = new JLabel(i1);
         lb1.setBounds(0,0,1500,800);
         add(lb1);
@@ -77,17 +84,20 @@ public class web extends JFrame implements ActionListener {
 
 
 
-        setUndecorated(true);
+        //setUndecorated(true);
         setLayout(null);
-        this.setLocationRelativeTo(null);
+        setLocationRelativeTo(null);
         setVisible(true);
     }
-    public void actionPerformed(ActionEvent ae)
-    {
+    @Override
+   public void actionPerformed(ActionEvent ae) {
         if(ae.getSource()==lag)
         {
+            String data=null;
             new check();
-            setVisible(false);
+            new web().setVisible(false);
+            new FirstFrame().setVisible(false);
+            new SecondFrame(data).setVisible(false);
         }
         else if(ae.getSource()==l1)
         {
@@ -95,8 +105,9 @@ public class web extends JFrame implements ActionListener {
         }
         else if(ae.getSource()==lb2)
        {
-           FirstFrame  firstFrame= new FirstFrame();
-           firstFrame.setVisible(true);
+        new FirstFrame();
+        this.setVisible(false);
+
 
        }
     }
